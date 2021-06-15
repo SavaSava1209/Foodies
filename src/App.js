@@ -72,7 +72,7 @@ function App() {
       })
       .catch(console.log)
     }
-  }, user)
+  }, [user])
 
   const loadUser = (data) => {    
       setUser({
