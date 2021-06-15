@@ -1,0 +1,14 @@
+.searchBar {
+    background-color: lightgreen
+}
+
+.title {
+    display: flex;
+    font-family: 'Shadows Into Light', cursive;
+    justify-content: center;
+}
+
+h2 {
+    align-self: center;
+    padding-left: 2rem;
+}

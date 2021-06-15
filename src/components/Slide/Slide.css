@@ -1,0 +1,24 @@
+img {
+    width:  60%;
+    text-align: center;
+}
+
+.slide {
+    height:  60vh;
+}
+
+@media screen and (max-width: 375px) {
+    .slide {
+        height:  50vh;
+    }
+
+    img { 
+        width: 250px;
+    }
+
+    .caption {
+        width:  250px;
+          
+  }
+
+}
