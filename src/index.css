@@ -10,8 +10,11 @@ html, body, #root  {
   background: linear-gradient(#e66465, #9198e5);
   background-image: url('./img/background1.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: center, center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+
 }
 
 code {
