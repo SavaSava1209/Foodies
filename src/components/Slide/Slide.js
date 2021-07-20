@@ -27,7 +27,7 @@ const Slide = () => {
           <img className="d-block w-60 center" src={ingredientSlide} alt="Check Ingredients"/>
           <Carousel.Caption className='br3 w-60 center caption' style={{backgroundColor: 'lightblue'}}>
             <h3>Check Ingredient</h3>
-            <p>Simply upload an image or paste the image URL to find out the ingredients</p>
+            <p>Simply paste the image URL to find out the ingredients</p>
           </Carousel.Caption>
         </Link>
         </Carousel.Item>
