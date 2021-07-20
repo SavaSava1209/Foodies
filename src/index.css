@@ -8,7 +8,7 @@ html, body, #root  {
   -moz-osx-font-smoothing: grayscale;
   
   background: linear-gradient(#e66465, #9198e5);
-  background-image: url('./img/lemon-pink.jpg');
+  background-image: url('./img/background1.jpg');
   background-size: cover;
 }
 
