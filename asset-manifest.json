@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/Foodies/static/css/main.ff629a03.chunk.css",
-    "main.js": "/Foodies/static/js/main.1005497b.chunk.js",
-    "main.js.map": "/Foodies/static/js/main.1005497b.chunk.js.map",
+    "main.js": "/Foodies/static/js/main.694c74be.chunk.js",
+    "main.js.map": "/Foodies/static/js/main.694c74be.chunk.js.map",
     "runtime-main.js": "/Foodies/static/js/runtime-main.db4f7afc.js",
     "runtime-main.js.map": "/Foodies/static/js/runtime-main.db4f7afc.js.map",
     "static/css/2.2a888623.chunk.css": "/Foodies/static/css/2.2a888623.chunk.css",
-    "static/js/2.a5bf5382.chunk.js": "/Foodies/static/js/2.a5bf5382.chunk.js",
-    "static/js/2.a5bf5382.chunk.js.map": "/Foodies/static/js/2.a5bf5382.chunk.js.map",
+    "static/js/2.df1c93ec.chunk.js": "/Foodies/static/js/2.df1c93ec.chunk.js",
+    "static/js/2.df1c93ec.chunk.js.map": "/Foodies/static/js/2.df1c93ec.chunk.js.map",
     "static/js/3.7eeb5c94.chunk.js": "/Foodies/static/js/3.7eeb5c94.chunk.js",
     "static/js/3.7eeb5c94.chunk.js.map": "/Foodies/static/js/3.7eeb5c94.chunk.js.map",
     "index.html": "/Foodies/index.html",
     "static/css/2.2a888623.chunk.css.map": "/Foodies/static/css/2.2a888623.chunk.css.map",
     "static/css/main.ff629a03.chunk.css.map": "/Foodies/static/css/main.ff629a03.chunk.css.map",
-    "static/js/2.a5bf5382.chunk.js.LICENSE.txt": "/Foodies/static/js/2.a5bf5382.chunk.js.LICENSE.txt",
+    "static/js/2.df1c93ec.chunk.js.LICENSE.txt": "/Foodies/static/js/2.df1c93ec.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Foodies/static/media/background1.30684a44.jpg",
     "static/media/ingredient-slide.e8c25a7c.jpg": "/Foodies/static/media/ingredient-slide.e8c25a7c.jpg",
     "static/media/ingredient.c07c3b8e.jpg": "/Foodies/static/media/ingredient.c07c3b8e.jpg",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.db4f7afc.js",
     "static/css/2.2a888623.chunk.css",
-    "static/js/2.a5bf5382.chunk.js",
+    "static/js/2.df1c93ec.chunk.js",
     "static/css/main.ff629a03.chunk.css",
-    "static/js/main.1005497b.chunk.js"
+    "static/js/main.694c74be.chunk.js"
   ]
 }
