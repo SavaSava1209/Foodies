@@ -1,5 +1,5 @@
-import './SavedRecipes.css'
-import { useState, useEffect } from 'react'
+import './SavedRecipes.css';
+import { useState, useEffect } from 'react';
 
 
 

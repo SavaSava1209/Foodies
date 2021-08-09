@@ -10,10 +10,7 @@ const Signin = ({loadUser, isLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   let history = useHistory()
-
-
   
-
   const saveAuthToken = (token) => {
     window.localStorage.setItem("token", token)
   }

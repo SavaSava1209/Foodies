@@ -1,26 +1,23 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-
-
+import React, { useState, useEffect, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
- 
 } from "react-router-dom";
 
-
 import 'tachyons';
-
 import Navigation from './components/Navigation/Navigation';
-import Ingredient from './components/Ingredient/Ingredient';
-import RecommendRecipe from './components/RecommendRecipe/RecommendRecipe';
 import Slide from './components/Slide/Slide';
-import Register from './components/Register/Register';
-import Signin from './components/Signin/Signin';
 import Modal from './components/Modal/Modal';
-import Profile from './components/Profile/Profile';
-import SavedRecipes from './components/SavedRecipes/SavedRecipes';
+const Ingredient = React.lazy(() => import('./components/Ingredient/Ingredient'));
+const RecommendRecipe = React.lazy(() => import('./components/RecommendRecipe/RecommendRecipe')) ;
+const Register = React.lazy(() => import('./components/Register/Register'));
+const Signin = React.lazy( ()=> import('./components/Signin/Signin')) ;
+const Profile = React.lazy(() => import('./components/Profile/Profile')) ;
+const SavedRecipes = React.lazy(() => import('./components/SavedRecipes/SavedRecipes')) ;
+
+
 
 
 const initialState = {  
@@ -43,8 +40,7 @@ function App() {
 
 
   useEffect(() => {          
-    const token = window.localStorage.getItem('token')  
-
+    const token = window.localStorage.getItem('token')
     if (token) {      
       return fetch('https://warm-reef-43761.herokuapp.com/signin', {
         method: 'post',
@@ -72,7 +68,7 @@ function App() {
       })
       .catch(console.log)
     }
-  }, [user])
+  }, [])
 
   const loadUser = (data) => {    
       setUser({
@@ -104,33 +100,37 @@ function App() {
   return (
 
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>  
-        <Navigation 
-          isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/> 
-        { isProfileOpen && 
-          <Modal>
-            <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
-          </Modal>
-        }
-        <Switch>           
-          <Route path='/' exact component = {Slide} />
-          <Route path='/register' >
-            <Register loadUser={loadUser} /> 
-          </Route>
-          <Route path='/signin'>
-            <Signin loadUser={loadUser} />
-          </Route>
-          <Route path='/foodlist' >
-            <Ingredient isLogin={user.isLogin}/>
-          </Route>           
-          <Route path='/recommendrecipes' >
-            <RecommendRecipe user={user.user} loadUser={loadUser} isLogin={user.isLogin} />
-          </Route> 
-           <Route path='/savedrecipes' >
-            <SavedRecipes user={user.user} loadUser={loadUser}/> 
-          </Route>
-        </Switch>
-      </Router>  
+    
+        <Router basename={process.env.PUBLIC_URL}>  
+          <Navigation 
+            isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/> 
+          { isProfileOpen && 
+            <Modal>
+              <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
+            </Modal>
+          }
+          <Suspense fallback={<span>Loading</span>}>
+          <Switch>           
+            <Route path='/' exact component = {Slide} />
+            <Route path='/register' >
+              <Register loadUser={loadUser} /> 
+            </Route>
+            <Route path='/signin'>
+              <Signin loadUser={loadUser} />
+            </Route>
+            <Route path='/foodlist' >
+              <Ingredient isLogin={user.isLogin}/>
+            </Route>           
+            <Route path='/recommendrecipes' >
+              <RecommendRecipe user={user.user} loadUser={loadUser} isLogin={user.isLogin} />
+            </Route> 
+             <Route path='/savedrecipes' >
+              <SavedRecipes user={user.user} loadUser={loadUser}/> 
+            </Route>
+          </Switch>
+          </Suspense>
+          </Router>  
+        
     </div>
   );
 }
