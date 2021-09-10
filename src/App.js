@@ -10,11 +10,12 @@ import 'tachyons';
 import Navigation from './components/Navigation/Navigation';
 import Slide from './components/Slide/Slide';
 import Modal from './components/Modal/Modal';
+import Profile from './components/Profile/Profile';
 const Ingredient = React.lazy(() => import('./components/Ingredient/Ingredient'));
 const RecommendRecipe = React.lazy(() => import('./components/RecommendRecipe/RecommendRecipe')) ;
 const Register = React.lazy(() => import('./components/Register/Register'));
 const Signin = React.lazy( ()=> import('./components/Signin/Signin')) ;
-const Profile = React.lazy(() => import('./components/Profile/Profile')) ;
+
 const SavedRecipes = React.lazy(() => import('./components/SavedRecipes/SavedRecipes')) ;
 
 

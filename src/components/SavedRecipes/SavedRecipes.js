@@ -92,6 +92,7 @@ function SavedRecipes({user, loadUser}) {
             <th>Delete</th>
           </tr>
         </tbody>
+        {console.log(savedRecipes)}
         { savedRecipes.map( recipe => {
           return (
             <tbody key={recipe.recipe_id}>            
