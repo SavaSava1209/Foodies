@@ -104,6 +104,7 @@ function App() {
         <Router basename={process.env.PUBLIC_URL}>  
           <Navigation 
             isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/> 
+            {console.log(isProfileOpen)}
           { isProfileOpen && 
             <Modal>
               <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
