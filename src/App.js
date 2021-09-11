@@ -15,7 +15,6 @@ const Ingredient = React.lazy(() => import('./components/Ingredient/Ingredient')
 const RecommendRecipe = React.lazy(() => import('./components/RecommendRecipe/RecommendRecipe')) ;
 const Register = React.lazy(() => import('./components/Register/Register'));
 const Signin = React.lazy( ()=> import('./components/Signin/Signin')) ;
-
 const SavedRecipes = React.lazy(() => import('./components/SavedRecipes/SavedRecipes')) ;
 
 

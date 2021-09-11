@@ -8,8 +8,7 @@ function Profile({ toggleModal, user, loadUser }) {
   const [ username, setUsername ] = useState(user.username);
   const [ dob, setDob ] = useState(user.dob) 
   
-  const onInputChange = (event) => {
-    
+  const onInputChange = (event) => {    
     switch (event.target.name) {
       case 'username': 
         setUsername(event.target.value)
