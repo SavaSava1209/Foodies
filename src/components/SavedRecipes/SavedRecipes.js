@@ -88,7 +88,7 @@ function SavedRecipes({user, loadUser}) {
           <tr>
             <th>Food Name</th>
             <th>Picture</th>
-            <th>Note</th>
+            <th>Notes</th>
             <th>Delete</th>
           </tr>
         </tbody>
