@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Foodies/static/css/main.74c6646f.chunk.css",
+    "main.css": "/Foodies/static/css/main.72046ad6.chunk.css",
     "main.js": "/Foodies/static/js/main.90776cd5.chunk.js",
     "main.js.map": "/Foodies/static/js/main.90776cd5.chunk.js.map",
     "runtime-main.js": "/Foodies/static/js/runtime-main.e02d9116.js",
@@ -32,7 +32,7 @@
     "static/css/5.c9d43c06.chunk.css.map": "/Foodies/static/css/5.c9d43c06.chunk.css.map",
     "static/css/6.f60a2071.chunk.css.map": "/Foodies/static/css/6.f60a2071.chunk.css.map",
     "static/css/7.0a21b4d9.chunk.css.map": "/Foodies/static/css/7.0a21b4d9.chunk.css.map",
-    "static/css/main.74c6646f.chunk.css.map": "/Foodies/static/css/main.74c6646f.chunk.css.map",
+    "static/css/main.72046ad6.chunk.css.map": "/Foodies/static/css/main.72046ad6.chunk.css.map",
     "static/js/2.b4d5edec.chunk.js.LICENSE.txt": "/Foodies/static/js/2.b4d5edec.chunk.js.LICENSE.txt",
     "static/media/index.css": "/Foodies/static/media/background1.30684a44.jpg",
     "static/media/ingredient-slide.e8c25a7c.jpg": "/Foodies/static/media/ingredient-slide.e8c25a7c.jpg",
@@ -46,7 +46,7 @@
     "static/js/runtime-main.e02d9116.js",
     "static/css/2.2a888623.chunk.css",
     "static/js/2.b4d5edec.chunk.js",
-    "static/css/main.74c6646f.chunk.css",
+    "static/css/main.72046ad6.chunk.css",
     "static/js/main.90776cd5.chunk.js"
   ]
 }
