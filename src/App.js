@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,11 +11,11 @@ import Navigation from './components/Navigation/Navigation';
 import Slide from './components/Slide/Slide';
 import Modal from './components/Modal/Modal';
 import Profile from './components/Profile/Profile';
-const Ingredient = React.lazy(() => import('./components/Ingredient/Ingredient'));
-const RecommendRecipe = React.lazy(() => import('./components/RecommendRecipe/RecommendRecipe')) ;
-const Register = React.lazy(() => import('./components/Register/Register'));
-const Signin = React.lazy( ()=> import('./components/Signin/Signin')) ;
-const SavedRecipes = React.lazy(() => import('./components/SavedRecipes/SavedRecipes')) ;
+import Ingredient from './components/Ingredient/Ingredient';
+import RecommendRecipe from'./components/RecommendRecipe/RecommendRecipe' ;
+import Register from'./components/Register/Register';
+import Signin from'./components/Signin/Signin' ;
+import SavedRecipes from './components/SavedRecipes/SavedRecipes' ;
 
 
 
@@ -110,7 +110,7 @@ function App() {
               <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
             </Modal>
           }
-          <Suspense fallback={<span>Loading</span>}>
+         
           <Switch>           
             <Route path='/' exact component = {Slide} />
             <Route path='/register' >
@@ -129,7 +129,7 @@ function App() {
               <SavedRecipes user={user.user} loadUser={loadUser}/> 
             </Route>
           </Switch>
-          </Suspense>
+         
           </Router>  
         
     </div>
