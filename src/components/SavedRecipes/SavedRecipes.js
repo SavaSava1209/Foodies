@@ -16,14 +16,13 @@ function SavedRecipes({user, loadUser}) {
     })
     .then(resp=> resp.json())
     .then(recipes => {
-      setSavedRecipes(recipes)      
+       const sortedRecipes = recipes.sort((a, b) => {
+         return a.recipe_id - b.recipe_id
+       })
+      setSavedRecipes(sortedRecipes)      
     })
     .catch(console.log)
   },[user.recipes_number])
-
-  
-
- 
 
   const textAreaSubmit = (event, recipe_id) => {  
       event.preventDefault();        
@@ -43,8 +42,7 @@ function SavedRecipes({user, loadUser}) {
       .catch(err => console.log('can not save note'))
      
 };
-  const deleteRecipe = (e, recipe_id) => {     
-    e.preventDefault()
+  const deleteRecipe = (e, recipe_id) => {      
     fetch(`https://warm-reef-43761.herokuapp.com/saved_recipes/${user.user_id}`, {
         method: 'delete',
         headers: { 
@@ -67,7 +65,6 @@ function SavedRecipes({user, loadUser}) {
             })
            .then(resp => resp.json())
            .then(data => {
-
              loadUser(data)            
            })
            .catch(err => console.log(err))
