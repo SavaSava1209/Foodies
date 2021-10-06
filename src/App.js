@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , Suspense} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -100,17 +100,14 @@ function App() {
   return (
 
     <div className="App">
-    
-        <Router basename={process.env.PUBLIC_URL}>  
+        <Router basename='/Foodies'>  
           <Navigation 
-            isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/> 
-            
+            isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/>             
           { isProfileOpen && 
             <Modal>
               <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
             </Modal>
           }
-         
           <Switch>           
             <Route path='/' exact component = {Slide} />
             <Route path='/register' >
