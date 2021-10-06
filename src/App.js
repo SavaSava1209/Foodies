@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect , Suspense} from 'react';
+import React, { useState, useEffect , Suspense, lazy} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,11 +11,12 @@ import Navigation from './components/Navigation/Navigation';
 import Slide from './components/Slide/Slide';
 import Modal from './components/Modal/Modal';
 import Profile from './components/Profile/Profile';
-import Ingredient from './components/Ingredient/Ingredient';
-import RecommendRecipe from'./components/RecommendRecipe/RecommendRecipe' ;
-import Register from'./components/Register/Register';
-import Signin from'./components/Signin/Signin' ;
-import SavedRecipes from './components/SavedRecipes/SavedRecipes' ;
+const Ingredient = lazy(() => import('./components/Ingredient/Ingredient')) ;
+const RecommendRecipe = lazy(() => import('./components/RecommendRecipe/RecommendRecipe'))
+const Register = lazy(() => import('./components/Register/Register'))
+const Signin = lazy(() => import('./components/Signin/Signin'))
+const SavedRecipes = lazy(() => import('./components/SavedRecipes/SavedRecipes'))
+
 
 
 
@@ -101,34 +102,33 @@ function App() {
 
     <div className="App">
         <Router basename='/Foodies'>  
-          <Navigation 
-            isLogin={user.isLogin} signout={signout} toggleModal={toggleModal}/>             
+          <Navigation isLogin={user.isLogin} signout={signout} toggleModal={toggleModal} /> 
           { isProfileOpen && 
             <Modal>
               <Profile  toggleModal={toggleModal} user={user.user} loadUser={loadUser}/>
             </Modal>
           }
-          <Switch>           
-            <Route path='/' exact component = {Slide} />
-            <Route path='/register' >
-              <Register loadUser={loadUser} /> 
-            </Route>
-            <Route path='/signin'>
-              <Signin loadUser={loadUser} />
-            </Route>
-            <Route path='/foodlist' >
-              <Ingredient isLogin={user.isLogin}/>
-            </Route>           
-            <Route path='/recommendrecipes' >
-              <RecommendRecipe user={user.user} loadUser={loadUser} isLogin={user.isLogin} />
-            </Route> 
-             <Route path='/savedrecipes' >
-              <SavedRecipes user={user.user} loadUser={loadUser}/> 
-            </Route>
-          </Switch>
-         
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>           
+              <Route path='/' exact component = {Slide} />
+              <Route path='/register' >
+                <Register loadUser={loadUser} /> 
+              </Route>
+              <Route path='/signin'>
+                <Signin loadUser={loadUser} />
+              </Route>
+              <Route path='/foodlist' >
+                <Ingredient isLogin={user.isLogin}/>
+              </Route>           
+              <Route path='/recommendrecipes' >
+                <RecommendRecipe user={user.user} loadUser={loadUser} isLogin={user.isLogin} />
+              </Route> 
+               <Route path='/savedrecipes' >
+                <SavedRecipes user={user.user} loadUser={loadUser}/> 
+              </Route>
+            </Switch>
+          </Suspense>
           </Router>  
-        
     </div>
   );
 }
