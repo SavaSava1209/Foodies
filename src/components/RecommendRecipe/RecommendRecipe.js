@@ -2,13 +2,18 @@ import './RecommendRecipe.css'
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { useState } from 'react';
 import recipe from '../../img/recipe.png';
+
 
 
 function RecommendRecipe({ user, loadUser, isLogin }) {
   const [foodName, setFoodName] = useState('');
   const [recipesArray, setRecipesArray] = useState([])
+  const [heart, setHeart] = useState([])
+  
+
  
 
   const onInputChange = (event) => {    
@@ -41,8 +46,9 @@ function RecommendRecipe({ user, loadUser, isLogin }) {
     }
   }
 
-  const favoriteButton = (recipe) => {
- 
+  const favoriteButton = (recipe) => {   
+    setHeart([...heart, recipe.id])
+    console.log(heart)
     fetch(`https://warm-reef-43761.herokuapp.com/saved_recipes/${user.user_id}`, {
       method: 'post',
       headers: { 
@@ -60,15 +66,10 @@ function RecommendRecipe({ user, loadUser, isLogin }) {
     .then(data => {
     if (data === 'exist') {
       alert('reciped added')
-    }      
+    } 
       loadUser({...user, ...data})
-          
     })
     .catch(console.log)
-  
-
-   
-
   }
 
   return (
@@ -94,6 +95,7 @@ function RecommendRecipe({ user, loadUser, isLogin }) {
           </InputGroup.Append>
         </InputGroup>
       </div>     
+      
       {
         recipesArray.length > 0 &&
           recipesArray.map(recipe => {
@@ -107,20 +109,15 @@ function RecommendRecipe({ user, loadUser, isLogin }) {
                     <div className="desc">{recipe.title}</div>
                     <div>
                       <button type="button" className="btn btn-outline-danger mb2" name='favorite' 
-                      onClick={() => favoriteButton(recipe )}>
-                      Add to facorite 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart ml2" viewBox="0 0 16 16">
-                          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                        </svg>
-                      </button>
-
+                        onClick={() => favoriteButton(recipe)}>        
+                           {heart.includes(recipe.id)? <AiFillHeart /> : <AiOutlineHeart />}          
+                      </button>                     
                     </div>
                   </div>
                 </div>
               </div>
             )
-          })
-        
+          })        
       }
    </div>
   );

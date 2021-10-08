@@ -42,7 +42,7 @@ function SavedRecipes({user, loadUser}) {
       .catch(err => console.log('can not save note'))
      
 };
-  const deleteRecipe = (e, recipe_id) => {      
+  const deleteRecipe = (e, recipe_id) => {          
     fetch(`https://warm-reef-43761.herokuapp.com/saved_recipes/${user.user_id}`, {
         method: 'delete',
         headers: { 
@@ -55,6 +55,7 @@ function SavedRecipes({user, loadUser}) {
         })
       .then(resp => resp.json()) 
       .then(data => { 
+        
         if (data) {          
            fetch(`https://warm-reef-43761.herokuapp.com/profile/${user.user_id}`, {
               method: 'delete',
