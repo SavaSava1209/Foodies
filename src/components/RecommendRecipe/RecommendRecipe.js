@@ -48,7 +48,6 @@ function RecommendRecipe({ user, loadUser, isLogin }) {
 
   const favoriteButton = (recipe) => {   
     setHeart([...heart, recipe.id])
-    console.log(heart)
     fetch(`https://warm-reef-43761.herokuapp.com/saved_recipes/${user.user_id}`, {
       method: 'post',
       headers: { 

@@ -55,8 +55,7 @@ function SavedRecipes({user, loadUser}) {
         })
       .then(resp => resp.json()) 
       .then(data => { 
-        
-        if (data) {          
+        if (data.length > 0) {          
            fetch(`https://warm-reef-43761.herokuapp.com/profile/${user.user_id}`, {
               method: 'delete',
               headers: {
@@ -66,6 +65,7 @@ function SavedRecipes({user, loadUser}) {
             })
            .then(resp => resp.json())
            .then(data => {
+             
              loadUser(data)            
            })
            .catch(err => console.log(err))
